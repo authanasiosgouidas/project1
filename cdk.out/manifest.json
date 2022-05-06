@@ -1,0 +1,143 @@
+{
+  "version": "18.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "project1.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "project1.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "project1": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "project1.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3ffd7c0c710ae34d2e37bee9aebd91b907b88cc77c66292af5e7407d776d74de.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "project1.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "Project1"
+      },
+      "dependencies": [
+        "project1.assets"
+      ],
+      "metadata": {
+        "/project1/ProjectApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApi35937713"
+          }
+        ],
+        "/project1/ProjectApi/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApiCloudWatchRoleCAA1A353"
+          }
+        ],
+        "/project1/ProjectApi/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApiAccountCEB8D709"
+          }
+        ],
+        "/project1/ProjectApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApiDeploymentA031BDC8946bdf2fb9166e2ad535898ef022b1da"
+          }
+        ],
+        "/project1/ProjectApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApiDeploymentStageprod1A54D535"
+          }
+        ],
+        "/project1/ProjectApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApiEndpointB1EEBFF2"
+          }
+        ],
+        "/project1/ProjectApi/Default/hello/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApihelloE8EAFAB8"
+          }
+        ],
+        "/project1/ProjectApi/Default/hello/GET/ApiPermission.project1ProjectApi01B9A700.GET..hello": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApihelloGETApiPermissionproject1ProjectApi01B9A700GEThello5155EE88"
+          }
+        ],
+        "/project1/ProjectApi/Default/hello/GET/ApiPermission.Test.project1ProjectApi01B9A700.GET..hello": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApihelloGETApiPermissionTestproject1ProjectApi01B9A700GEThello276FBE05"
+          }
+        ],
+        "/project1/ProjectApi/Default/hello/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProjectApihelloGET21206A78"
+          }
+        ],
+        "/project1/helloLambda/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloLambdaServiceRoleBB046714"
+          }
+        ],
+        "/project1/helloLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloLambda79DCE371"
+          }
+        ],
+        "/project1/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/project1/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/project1/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/project1/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "project1"
+    }
+  }
+}
